@@ -1,0 +1,19 @@
+[project]
+name = "projecty"
+authors = [{name = "spyincorp", email = "theincorporatedspy@gmail.com"}]
+version = "0.0.1"
+requires-python = ">=3.11"
+dependencies = [
+    "requests",
+    "python-dotenv",
+    "openai",
+]
+
+[build-system]
+requires = ["setuptools >= 77.0.3"]
+build-backend = "setuptools.build_meta"
+
+[project.optional-dependencies]
+dev = [
+    "pytest"
+]
