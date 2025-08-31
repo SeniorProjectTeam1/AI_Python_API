@@ -5,6 +5,8 @@ import threading
 
 
 class Loader(threading.Thread):
+    """Loader object to generate a threaded loading printout"""
+
     def __init__(self, message="Generating...", interval=0.1):
         super().__init__()
         self._stop_event = threading.Event()
@@ -12,6 +14,7 @@ class Loader(threading.Thread):
         self.interval = interval
 
     def run(self):
+        """Run command to print loading text."""
         spinner = itertools.cycle(["-", "\\", "|", "/"])
         while not self._stop_event.is_set():
             sys.stdout.write(f"\r{self.message} {next(spinner)}")
@@ -21,4 +24,5 @@ class Loader(threading.Thread):
         sys.stdout.flush()
 
     def stop(self):
+        """Flag to stop threaded Loader object."""
         self._stop_event.set()

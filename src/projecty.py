@@ -3,7 +3,6 @@ from dotenv import load_dotenv
 from openai import OpenAI
 from supported_models import SupportedModels
 from loader import Loader
-from threading import Thread
 
 load_dotenv()
 
@@ -93,7 +92,6 @@ class AI:
         self.store = not self.store
         return self.store
 
-    # TODO change message to be a str or some schema to aid in a skeleton for prompt gen.
     def set_message(self, message: str):
         """Sets the message or messages to be sent to the selected AI model.
 
